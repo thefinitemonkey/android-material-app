@@ -27,7 +27,7 @@
         <item name="android:navigationBarColor">#607D88</item>
         <item name="android:statusBarColor">#455A64</item>
         <item name="android:textColorPrimary">#212121</item>
-        <item name="android:textColorPrimaryInverse">#FFFFFF</item>
+        <item name="textColorPrimaryInverse">#FFFFFF</item>
     </style>
 
     <!--

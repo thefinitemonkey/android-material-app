@@ -4,4 +4,5 @@
     </declare-styleable>
     <attr name="colorPrimary" format="color" />
     <attr name="colorBackground" format="color" />
+    <attr name="textColorPrimaryInverse" format="color" />
 </resources>
