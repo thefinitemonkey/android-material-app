@@ -3,6 +3,13 @@
         <attr name="insetBackground" format="color|reference" />
     </declare-styleable>
     <attr name="colorPrimary" format="color" />
+    <attr name="colorPrimaryDark" format="color" />
+    <attr name="textColor" format="color" />
+    <attr name="colorAccent" format="color" />
     <attr name="colorBackground" format="color" />
+    <attr name="colorSecondary" format="color" />
+    <attr name="navigationBarColor" format="color" />
+    <attr name="statusBarColor" format="color" />
+    <attr name="textColorPrimary" format="color" />
     <attr name="textColorPrimaryInverse" format="color" />
 </resources>

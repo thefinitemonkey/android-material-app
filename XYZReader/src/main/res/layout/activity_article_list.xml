@@ -18,10 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="110dp"
             android:fitsSystemWindows="true"
+            app:collapsedTitleTextAppearance="@style/toolbarTitleText"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleGravity="bottom"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/toolbarTitleText"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:titleEnabled="true">
 

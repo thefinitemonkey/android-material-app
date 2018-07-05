@@ -18,16 +18,21 @@
 <resources>
 
     <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-        <item name="android:colorPrimaryDark">#455A64</item>
+        <item name="colorPrimaryDark">#455A64</item>
         <item name="colorPrimary">#607D8B</item>
-        <item name="android:textColor">#212121</item>
-        <item name="android:colorAccent">#FF9800</item>
+        <item name="textColor">#212121</item>
+        <item name="colorAccent">#FF9800</item>
         <item name="colorBackground">#FFFFFF</item>
-        <item name="android:colorSecondary">#CFD8DC</item>
-        <item name="android:navigationBarColor">#607D88</item>
-        <item name="android:statusBarColor">#455A64</item>
-        <item name="android:textColorPrimary">#212121</item>
+        <item name="colorSecondary">#CFD8DC</item>
+        <item name="navigationBarColor">#607D88</item>
+        <item name="statusBarColor">#455A64</item>
+        <item name="textColorPrimary">#212121</item>
         <item name="textColorPrimaryInverse">#FFFFFF</item>
+    </style>
+
+    <style name="toolbarTitleText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">32sp</item>
     </style>
 
     <!--
