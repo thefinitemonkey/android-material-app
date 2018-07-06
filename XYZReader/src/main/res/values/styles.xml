@@ -32,7 +32,7 @@
 
     <style name="toolbarTitleText" parent="TextAppearance.AppCompat">
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">32sp</item>
+        <item name="android:textSize">30sp</item>
     </style>
 
     <!--

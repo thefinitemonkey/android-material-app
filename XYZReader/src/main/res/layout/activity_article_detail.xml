@@ -17,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleTextAppearance="@style/toolbarTitleText"
@@ -36,7 +35,6 @@
                 android:id="@+id/details_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="?attr/colorPrimary"
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed" />
 
@@ -53,6 +51,8 @@
             android:id="@+id/tv_article_body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
             android:text="test text"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="@dimen/detail_body_text_size" />

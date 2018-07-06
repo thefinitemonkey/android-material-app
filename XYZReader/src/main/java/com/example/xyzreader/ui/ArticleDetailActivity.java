@@ -17,6 +17,7 @@ import android.support.v4.app.ShareCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.graphics.Palette;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -78,6 +79,9 @@ public class ArticleDetailActivity extends ActionBarActivity
 
         ButterKnife.bind(this);
 
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.details_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /*
         mPagerAdapter = new MyPagerAdapter(getFragmentManager());
@@ -165,7 +169,7 @@ public class ArticleDetailActivity extends ActionBarActivity
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
         mCursor = cursor;
 
-        if (mCursor == null) {
+        if (mCursor == null || mCursor.getCount() == 0) {
             mArticleBody.setText("N/A");
             mCTLayout.setTitle("N/A");
             return;
@@ -180,9 +184,11 @@ public class ArticleDetailActivity extends ActionBarActivity
         String articleTitle = mCursor.getString(ArticleLoader.Query.TITLE);
         mCTLayout.setTitle(articleTitle);
 
-        ImageLoaderHelper.getInstance(mActivity).getImageLoader()
+        String photoUrl = mCursor.getString(ArticleLoader.Query.PHOTO_URL);
+
+        ImageLoaderHelper.getInstance(this).getImageLoader()
                 .get(
-                        mCursor.getString(ArticleLoader.Query.PHOTO_URL),
+                        photoUrl,
                         new ImageLoader.ImageListener() {
                             @Override
                             public void onResponse(ImageLoader.ImageContainer imageContainer, boolean b) {
