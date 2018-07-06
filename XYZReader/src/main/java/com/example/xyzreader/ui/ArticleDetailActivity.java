@@ -63,7 +63,6 @@ public class ArticleDetailActivity extends ActionBarActivity
     private long mStartId;
 
     private long mSelectedItemId;
-    private int mSelectedItemUpButtonFloor = Integer.MAX_VALUE;
 
     private SimpleDateFormat outputFormat = new SimpleDateFormat();
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
@@ -72,6 +71,7 @@ public class ArticleDetailActivity extends ActionBarActivity
 
     /*
     private int mTopInset;
+    private int mSelectedItemUpButtonFloor = Integer.MAX_VALUE;
 
     private ViewPager mPager;
     private MyPagerAdapter mPagerAdapter;
@@ -274,6 +274,7 @@ public class ArticleDetailActivity extends ActionBarActivity
         //mPagerAdapter.notifyDataSetChanged();
     }
 
+    /*
     public void onUpButtonFloorChanged(long itemId, ArticleDetailFragment fragment) {
         if (itemId == mSelectedItemId) {
             //mSelectedItemUpButtonFloor = fragment.getUpButtonFloor();
@@ -321,6 +322,7 @@ public class ArticleDetailActivity extends ActionBarActivity
             return (mCursor != null) ? mCursor.getCount() : 0;
         }
     }
+    */
 
     private Date parsePublishedDate() {
         try {

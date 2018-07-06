@@ -56,15 +56,12 @@ public class ArticleListActivity extends ActionBarActivity implements
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    //@BindView(R.id.ct_layout)
-    //CollapsingToolbarLayout mCollapsingToolbar;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
     // Use default locale format
     private SimpleDateFormat outputFormat = new SimpleDateFormat();
     // Most time functions can only handle 1902 - 2037
     private GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
 
-    private boolean mIsLandscape;
     private boolean mIsRefreshing = false;
     private BroadcastReceiver mRefreshingReceiver = new BroadcastReceiver() {
         @Override
@@ -80,16 +77,12 @@ public class ArticleListActivity extends ActionBarActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mIsLandscape = getResources().getBoolean(R.bool.landscape_layout);
         setContentView(R.layout.activity_article_list);
 
         ButterKnife.bind(this);
 
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setProgressViewOffset(false, 200, 300);
-
-        // Set the title on the toolbar
-        //setSupportActionBar(mToolbar);
 
         getLoaderManager().initLoader(0, null, this);
 
@@ -132,11 +125,7 @@ public class ArticleListActivity extends ActionBarActivity implements
         adapter.setHasStableIds(true);
         mRecyclerView.setAdapter(adapter);
         int columnCount;
-        if (mIsLandscape) {
-            columnCount = getResources().getInteger(R.integer.list_column_count);
-        } else {
-            columnCount = 1;
-        }
+        columnCount = getResources().getInteger(R.integer.list_column_count);
 
         StaggeredGridLayoutManager sglm =
                 new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
