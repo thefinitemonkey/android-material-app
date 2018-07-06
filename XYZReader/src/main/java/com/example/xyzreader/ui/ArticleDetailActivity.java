@@ -18,6 +18,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -32,7 +33,10 @@ import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.ItemsContract;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,6 +53,10 @@ public class ArticleDetailActivity extends ActionBarActivity
     ImageView mPhotoView;
     @BindView(R.id.tv_article_body)
     TextView mArticleBody;
+    @BindView(R.id.tv_author_name)
+    TextView mAuthorName;
+    @BindView(R.id.tv_publish_year)
+    TextView mPublishYear;
 
     private Activity mActivity = this;
     private Cursor mCursor;
@@ -56,6 +64,11 @@ public class ArticleDetailActivity extends ActionBarActivity
 
     private long mSelectedItemId;
     private int mSelectedItemUpButtonFloor = Integer.MAX_VALUE;
+
+    private SimpleDateFormat outputFormat = new SimpleDateFormat();
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
+    private GregorianCalendar START_OF_EPOCH = new GregorianCalendar(2, 1, 1);
+
 
     /*
     private int mTopInset;
@@ -186,6 +199,22 @@ public class ArticleDetailActivity extends ActionBarActivity
 
         String photoUrl = mCursor.getString(ArticleLoader.Query.PHOTO_URL);
 
+        mAuthorName.setText(mCursor.getString(ArticleLoader.Query.AUTHOR));
+
+        Date publishedDate = parsePublishedDate();
+        String dateString;
+        if (!publishedDate.before(START_OF_EPOCH.getTime())) {
+                        dateString = DateUtils.getRelativeTimeSpanString(
+                                publishedDate.getTime(),
+                                System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
+                                DateUtils.FORMAT_ABBREV_ALL).toString();
+
+        } else {
+            // If date is before 1902, just show the string
+            dateString = outputFormat.format(publishedDate);
+        }
+        mPublishYear.setText(dateString);
+
         ImageLoaderHelper.getInstance(this).getImageLoader()
                 .get(
                         photoUrl,
@@ -225,6 +254,19 @@ public class ArticleDetailActivity extends ActionBarActivity
         }
         */
     }
+
+    /*
+    private Date parsePublishedDate() {
+        try {
+            String date = mCursor.getString(ArticleLoader.Query.PUBLISHED_DATE);
+            return dateFormat.parse(date);
+        } catch (ParseException ex) {
+            Log.e(TAG, ex.getMessage());
+            Log.i(TAG, "passing today's date");
+            return new Date();
+        }
+    }
+    */
 
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
@@ -279,4 +321,16 @@ public class ArticleDetailActivity extends ActionBarActivity
             return (mCursor != null) ? mCursor.getCount() : 0;
         }
     }
+
+    private Date parsePublishedDate() {
+        try {
+            String date = mCursor.getString(ArticleLoader.Query.PUBLISHED_DATE);
+            return dateFormat.parse(date);
+        } catch (ParseException ex) {
+            //Log.e(TAG, ex.getMessage());
+            //Log.i(TAG, "passing today's date");
+            return new Date();
+        }
+    }
+
 }
