@@ -16,8 +16,10 @@
 -->
 
 <resources>
+    <style name="Theme.Bacon" parent="Base.Theme.Bacon">
+    </style>
 
-    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    <style name="Base.Theme.Bacon" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimaryDark">#455A64</item>
         <item name="colorPrimary">#607D8B</item>
         <item name="textColor">#212121</item>
@@ -28,6 +30,7 @@
         <item name="statusBarColor">#455A64</item>
         <item name="textColorPrimary">#212121</item>
         <item name="textColorPrimaryInverse">#FFFFFF</item>
+        <item name="scrollBackgroundColor">#AAAAAA</item>
     </style>
 
     <style name="toolbarTitleText" parent="TextAppearance.AppCompat">

@@ -56,8 +56,8 @@ public class ArticleListActivity extends ActionBarActivity implements
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @BindView(R.id.ct_layout)
-    CollapsingToolbarLayout mCollapsingToolbar;
+    //@BindView(R.id.ct_layout)
+    //CollapsingToolbarLayout mCollapsingToolbar;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
     // Use default locale format
     private SimpleDateFormat outputFormat = new SimpleDateFormat();
@@ -89,7 +89,7 @@ public class ArticleListActivity extends ActionBarActivity implements
         mSwipeRefreshLayout.setProgressViewOffset(false, 200, 300);
 
         // Set the title on the toolbar
-        setSupportActionBar(mToolbar);
+        //setSupportActionBar(mToolbar);
 
         getLoaderManager().initLoader(0, null, this);
 
