@@ -12,6 +12,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.view.ViewPager;
@@ -135,7 +136,6 @@ public class ArticleDetailActivity extends ActionBarActivity
                                 .getIntent(), getString(R.string.action_share)));
             }
         });
-
 
         /*
         mUpButtonContainer = findViewById(R.id.up_container);
